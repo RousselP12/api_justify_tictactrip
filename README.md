@@ -1,7 +1,6 @@
 # Tictactrip_api_justify
 
-this repository provides an API for aligning raw text linked to an authentication process
-
+this repository provides an API for justifying an insert of type plain text. It also provides a jwt authentification.
 ## Install
 
 ```
