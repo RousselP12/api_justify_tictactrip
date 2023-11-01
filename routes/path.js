@@ -6,7 +6,7 @@ const checkAuth = require('../function/auth')
 const router = express.Router();
 
 const wordsPerDay = {}; // Stocke le nombre de mots justifiés par token
-const RATE_LIMIT = 80000; // Limite de 80 000 mots par jour
+const maxWords = 80000; // Limite de 80 000 mots par jour
 
 // Middleware pour le nombre de mot max
 function rateLimitMiddleware(req, res, next) {
@@ -30,7 +30,7 @@ function rateLimitMiddleware(req, res, next) {
   }
 
   // Vérification si la limite de mots a été atteinte
-  if (wordsPerDay[token] > RATE_LIMIT) {
+  if (wordsPerDay[token] > maxWords) {
     return res.status(402).json({ error: 'Payment Required' });
   }
   console.log(wordsPerDay)
@@ -51,9 +51,6 @@ router.post('/', checkAuth, rateLimitMiddleware,  (req, res) => {
     res.status(200).send(justifiedText);
   });
 
-router.post('/', (req, res) => {
 
- 
-});
 
   module.exports = router;
