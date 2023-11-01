@@ -1,7 +1,15 @@
 # Tictactrip_api_justify
 
 this repository provides an API for justifying an insert of type plain text. It also provides a jwt authentification.
-## Install
+
+### this is the public url
+
+[link to post the email ang generate the email](https://api-justify-tictactrip.vercel.app/api/token "https://api-justify-tictactrip.vercel.app/api/token")
+
+[Link to post the text plain](https://api-justify-tictactrip.vercel.app/api/justify "https://api-justify-tictactrip.vercel.app/api/justify")
+
+
+## Dependencies
 
 ```
 npm install express
@@ -11,8 +19,8 @@ npm install json webtoken
 ```
 
 ## How to use?
-## Justify
 
+## Justify
 
 in the '/route/path' file which contains the raw text recovery endpoint. it contains the middleware which will count the maximum number of characters used by a token
 
@@ -45,7 +53,7 @@ function rateLimitMiddleware(req, res, next) {
     wordsPerDay[token] = wordCount; // Première requête avec ce token pour la journée
   } else {
     wordsPerDay[token] += wordCount; // Incrémentation le nombre de mots justifiés avec ce token
-    
+  
   }
 
   // Vérification si la limite de mots a été atteinte
@@ -70,12 +78,15 @@ router.post('/', checkAuth, rateLimitMiddleware,  (req, res) => {
 
   module.exports = router;
 ```
+
 with this line you will import the middleware to format the text
 
 ```javascript
     const justifyText = require('../function/justify');
 ```
+
 this is the middleware to justify the text
+
 ```javascript
     function justifyText(text="") {
     const maxLineLength = 80;
@@ -118,6 +129,7 @@ this is the middleware to justify the text
 ```
 
 ## Authentificate
+
 to manage the authentification we will create a fisrt middleware that will generate a jwt when a valid email will passed. Notice for the example we use a mock-email "foo@bar.com"
 
 ```javascript
@@ -146,6 +158,7 @@ module.exports = router;
 ```
 
 after the generation of the token it must be stored in order to be able to pass it in the header each time we make a post on the "api/justify" point
+
 ```javascript
     const jwt = require('jsonwebtoken');
 
@@ -170,10 +183,9 @@ function authenticate(req, res, next) {
 module.exports = authenticate;
 
 ```
+
 ## Scripts
 
 Run using npm.
 
     run start       - run the programm with nodemon, then program will stay awake and will reload itself eachtime when you'll save.
-
-
