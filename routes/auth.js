@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 const router = express.Router();
 
-const TestEmail = require('../text.json')
+const TestEmail = require('../mock-email.json')
 
 const secretKey = 'signature'; 
 
