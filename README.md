@@ -1,4 +1,4 @@
-# api_justify_tictactrip
+# Tictactrip_api_justify
 
 this repository provides an API for aligning raw text linked to an authentication process
 
