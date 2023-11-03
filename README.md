@@ -2,9 +2,9 @@
 
 this repository provides an API for justifying an insert of type plain text. It also provides a jwt authentification.
 
-### this is the public url
+### this is the public url link. you can use it yo access to the api directly in your application
 
-[link to post the email ang generate the email](https://api-justify-tictactrip.vercel.app/api/token "https://api-justify-tictactrip.vercel.app/api/token")
+[link to post the email ang generate the token](https://api-justify-tictactrip.vercel.app/api/token "https://api-justify-tictactrip.vercel.app/api/token")
 
 [Link to post the text plain](https://api-justify-tictactrip.vercel.app/api/justify "https://api-justify-tictactrip.vercel.app/api/justify")
 
